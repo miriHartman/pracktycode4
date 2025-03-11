@@ -37,15 +37,15 @@ var app=builder.Build();
 
 
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
         options.RoutePrefix = string.Empty; 
     });
-}
+// }
 
 
 
@@ -53,7 +53,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
-app.MapGet("/hi", () =>{return Results.Ok( "Hello World!");}).WithName("stamm");
+app.MapGet("/", () =>"work").WithName("stamm");
 
 //שליפה הכל 
 app.MapGet("/items", async (PraktycodeContext c) =>
