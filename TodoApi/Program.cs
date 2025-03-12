@@ -7,7 +7,7 @@ using Pomelo.EntityFrameworkCore.MySql.Internal;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<PraktycodeContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection")
+    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB")
     ,
     new MySqlServerVersion(new Version(8, 0, 41)) ,MySqlOptions=>MySqlOptions.EnableRetryOnFailure()
 ));
@@ -16,7 +16,6 @@ builder.Services.AddControllers();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddSwaggerGen(options =>
 {
-
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "My API",
