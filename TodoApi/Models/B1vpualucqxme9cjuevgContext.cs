@@ -5,13 +5,13 @@ using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
 namespace TodoApi.Models;
 
-public partial class PraktycodeContext : DbContext
+public partial class B1vpualucqxme9cjuevgContext : DbContext
 {
-    public PraktycodeContext()
+    public B1vpualucqxme9cjuevgContext()
     {
     }
 
-    public PraktycodeContext(DbContextOptions<PraktycodeContext> options)
+    public B1vpualucqxme9cjuevgContext(DbContextOptions<B1vpualucqxme9cjuevgContext> options)
         : base(options)
     {
     }
@@ -20,13 +20,13 @@ public partial class PraktycodeContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=localhost;database=praktycode;user=miri;password=0548424639", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
+        => optionsBuilder.UseMySql("server=b1vpualucqxme9cjuevg-mysql.services.clever-cloud.com;database=b1vpualucqxme9cjuevg;user=u1d6fj8ih4qumdb5;password=27hzJfnYo5JwnSdw1unf", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.22-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .UseCollation("utf8mb4_0900_ai_ci")
-            .HasCharSet("utf8mb4");
+            .UseCollation("utf8_general_ci")
+            .HasCharSet("utf8");
 
         modelBuilder.Entity<Item>(entity =>
         {
@@ -34,7 +34,7 @@ public partial class PraktycodeContext : DbContext
 
             entity.ToTable("items");
 
-            entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.Name).HasMaxLength(45);
             entity.Property(e => e.NewTablecol)
                 .HasMaxLength(45)
                 .HasColumnName("new_tablecol");

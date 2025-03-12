@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Pomelo.EntityFrameworkCore.MySql.Internal;
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<PraktycodeContext>(options =>
+builder.Services.AddDbContext<B1vpualucqxme9cjuevgContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB")
     ,
     new MySqlServerVersion(new Version(8, 0, 41)) ,MySqlOptions=>MySqlOptions.EnableRetryOnFailure()
@@ -56,7 +56,7 @@ app.UseHttpsRedirection();
 app.MapGet("/", () =>"work").WithName("stamm");
 
 //שליפה הכל 
-app.MapGet("/items", async (PraktycodeContext c) =>
+app.MapGet("/items", async (B1vpualucqxme9cjuevgContext c) =>
 {
     var items = await c.Items.ToListAsync();
     return Results.Ok(items);
@@ -65,7 +65,7 @@ app.MapGet("/items", async (PraktycodeContext c) =>
 
 
 // הוספת משימה
-app.MapPost("/items",async ([FromBody] Item item,PraktycodeContext c)=>{
+app.MapPost("/items",async ([FromBody] Item item,B1vpualucqxme9cjuevgContext c)=>{
 Item it = new Item
     {
         Name = item.Name,
@@ -77,7 +77,7 @@ Item it = new Item
 }).WithName("addTask");
 //מחיקת משימה
 
-app.MapDelete("/items/{id}",async(int Id,PraktycodeContext c)=>{
+app.MapDelete("/items/{id}",async(int Id,B1vpualucqxme9cjuevgContext c)=>{
     Item del=await c.Items.FirstOrDefaultAsync(w=>w.Id==Id);
     if(del!=null)
     c.Items.Remove(del);
@@ -85,7 +85,7 @@ app.MapDelete("/items/{id}",async(int Id,PraktycodeContext c)=>{
 
 }).WithName("deletetodo");
 //עדכון משימה
-app.MapPut("items/{id}",async(int id,[FromBody] Item item,PraktycodeContext c)=>{
+app.MapPut("items/{id}",async(int id,[FromBody] Item item,B1vpualucqxme9cjuevgContext c)=>{
     Item del=await c.Items.FirstOrDefaultAsync(w=>w.Id==id);
     if(del!=null){
         del.IsComplete=item.IsComplete;
