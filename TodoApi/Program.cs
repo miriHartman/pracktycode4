@@ -3,12 +3,13 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Pomelo.EntityFrameworkCore.MySql.Internal;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<PraktycodeContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection")
     ,
-    new MySqlServerVersion(new Version(8, 0, 41)) 
+    new MySqlServerVersion(new Version(8, 0, 41)) ,MySqlOptions=>MySqlOptions.EnableRetryOnFailure()
 ));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
