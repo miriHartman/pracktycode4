@@ -6,11 +6,17 @@ const apiUrl = "http://localhost:5198"
 export default {
   
   getTasks: async () => {
-    
-    //  axios.interceptors.response.use(async function (response) {
-    const result = await api.get(`${api}/items`)    
+    const result = await axios.get(`${apiUrl}items`)    
     return result.data;
-    // return response;
+  },
+
+
+  // getTasks: async () => {
+    
+  //   //  axios.interceptors.response.use(async function (response) {
+  //   const result = await api.get(`${api}/items`)    
+  //   return result.data;
+  //   // return response;
 
   // },
   // function (error) {
