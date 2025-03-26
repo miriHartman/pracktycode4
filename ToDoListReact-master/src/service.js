@@ -24,7 +24,7 @@ export default {
   //   // Do something with response error
   //   return Promise.reject(error);
   // });
-  },
+  // },
   addTask: async(name)=>{
     console.log('addTask:',name)
    await api.post(`${api}/items`,{name});
