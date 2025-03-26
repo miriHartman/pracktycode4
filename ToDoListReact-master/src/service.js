@@ -6,7 +6,7 @@ const apiUrl = "http://localhost:5198"
 export default {
   
   getTasks: async () => {
-    const result = await axios.get(`${apiUrl}items`)    
+    const result = await axios.get(`${apiUrl}/items`)    
     return result.data;
   },
 
