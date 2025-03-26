@@ -1,8 +1,8 @@
 import axios from 'axios';
 import api from './axiosInterpector.js';
 
-const apiUrl = "http://localhost:5198"
-
+// const apiUrl = "http://localhost:5198"
+axios.defaults.baseURL = api;
 export default {
   
   getTasks: async () => {
