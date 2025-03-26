@@ -27,19 +27,19 @@ export default {
   // },
   addTask: async(name)=>{
     console.log('addTask:',name)
-   await api.post(`${api}/items`,{name});
+   await axios.post(`${api}/items`,{name});
     return {};
   },
 
   setCompleted: async(id, isComplete)=>{
     
     console.log('setCompleted', {id, isComplete})
-    await api.put(`${api}/items/${id}`,{isComplete}) 
+    await axios.put(`${api}/items/${id}`,{isComplete}) 
     return{};
   },
 
   deleteTask:async(id)=>{
     console.log('deleteTask')
-   await api.delete(`${api}/items/${id}`);
+   await axios.delete(`${api}/items/${id}`);
   }
 };
