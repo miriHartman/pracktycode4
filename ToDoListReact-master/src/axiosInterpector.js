@@ -2,9 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_api,
-    
-   
+    baseURL: process.env.REACT_APP_api,  
 });
 
 api.interceptors.response.use(

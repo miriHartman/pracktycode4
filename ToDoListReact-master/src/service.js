@@ -1,7 +1,6 @@
 import axios from 'axios';
 import api from './axiosInterpector.js';
 
- 
 const apiUrl = "http://localhost:5198"
 
 export default {
