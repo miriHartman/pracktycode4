@@ -1,14 +1,14 @@
 import axios from 'axios';
 import api from './axiosInterpector.js';
 
-// const apiUrl = "http://localhost:5198"
+const apiUrl = "https://todoapi-jv76.onrender.com"
 // axios.defaults.baseURL = api;
 export default {
   
   getTasks: async () => {
     
     //  axios.interceptors.response.use(async function (response) {
-    const result = await api.get(`${api}/items`)    
+    const result = await api.get(`${apiUrl}/items`)    
     return result.data;
     // return response;
 
@@ -21,19 +21,19 @@ export default {
   // },
   addTask: async(name)=>{
     console.log('addTask:',name)
-   await axios.post(`${api}/items`,{name});
+   await axios.post(`${apiUrl}/items`,{name});
     return {};
   },
 
   setCompleted: async(id, isComplete)=>{
     
     console.log('setCompleted', {id, isComplete})
-    await axios.put(`${api}/items/${id}`,{isComplete}) 
+    await axios.put(`${apiUrl}/items/${id}`,{isComplete}) 
     return{};
   },
 
   deleteTask:async(id)=>{
     console.log('deleteTask')
-   await axios.delete(`${api}/items/${id}`);
+   await axios.delete(`${apiUrl}/items/${id}`);
   }
 };
