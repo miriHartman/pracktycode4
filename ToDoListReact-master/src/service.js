@@ -6,19 +6,13 @@ const apiUrl = "http://localhost:5198"
 export default {
   
   getTasks: async () => {
-    const result = await axios.get(`${apiUrl}/items`)    
-    return result.data;
-  },
-
-
-  // getTasks: async () => {
     
-  //   //  axios.interceptors.response.use(async function (response) {
-  //   const result = await api.get(`${api}/items`)    
-  //   return result.data;
-  //   // return response;
+    //  axios.interceptors.response.use(async function (response) {
+    const result = await axios.get(`${api}/items`)    
+    return result.data;
+    // return response;
 
-  // },
+  },
   // function (error) {
   //   // Any status codes that falls outside the range of 2xx cause this function to trigger
   //   // Do something with response error
